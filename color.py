@@ -41,8 +41,9 @@ def masking(blur, lower, upper, image):
     return res
 
 
-def colorDetection(colorBlindness):
-    image = cv2.imread('photos/carrots.png')
+def colorDetection(colorBlindness, file):
+    image = cv2.imread("uploads/" + file)
+
 
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -72,17 +73,12 @@ def colorDetection(colorBlindness):
 
 
     #changes opacity of the picture
-    filteredImage = cv2.addWeighted(result, alpha, image, beta, 0.0)
+   # filteredImage = cv2.addWeighted(result, alpha, image, beta, 0.0)
 
     #target = cv2.bitwise_and(image, image, mask=result)
 
-    cv2.imwrite('photos\img.png', filteredImage)
+    cv2.imwrite('photo.png', image)
 
-    #cv2.imshow('stack', np.hstack([image, filteredImage]))
-    cv2.waitKey(0)
-
-#img is the variable recieved from the flask project
-colorDetection(colorBlindness)
 
 
 

@@ -31,7 +31,7 @@ def filteredFile(f):
 def filter(f, filtertype):  # Do filter stuff <--- return a new filtered file
         print(f.filename)
         print(filtertype)
-        color.colorDetection(filtertype)
+        color.colorDetection(filtertype, f.filename)
 
 if __name__ == '__main__':
     app.run()
